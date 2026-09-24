@@ -6,4 +6,6 @@ Jogo para os alunos treinarem o versionamento de codígo
  27/08 - Aprendi Game Design de mecanica.  
  
 17/09 - Fiz o movimento e o pulo do meu jogo 2D.
+
 24/09 - Começei a criar o mapa do meu jogo, e fiz alguns obstáculos também.
+
