@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -24,23 +25,25 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0f, 8f), ForceMode2D.Impulse);
 
 
         }
     }
 
-    void OncollisionEnter2D(Collision2D collision)
-
-
-
-
-        void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
-
-            isGrounded = false;  // vai reconhecer quando o jogador pular no chao
-
+        {
+            isGrounded = true; //Vai reconhecer quando o jogador estiver no chão
+        }
     }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false; //Vai reconhecer quando o jogador não estiver no chão
+        }
+    }
 }
