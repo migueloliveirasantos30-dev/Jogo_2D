@@ -1,33 +1,29 @@
-using System.Runtime.CompilerServices;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
-
+    public float jumpForce = 8f; 
     private Rigidbody2D rb;
-
     private bool isGrounded = false;
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-
     void Update()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
+       
+        
         rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(new Vector2(0f, 8f), ForceMode2D.Impulse);
-
-
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -35,7 +31,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true; //Vai reconhecer quando o jogador estiver no chão
+            isGrounded = true; // Reconhece quando o jogador encosta no chão
+        }
+
+        
+        if (collision.gameObject.CompareTag("Dano"))
+        {
+            SceneManager.LoadScene(0); 
         }
     }
 
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false; //Vai reconhecer quando o jogador não estiver no chão
+            isGrounded = false; 
         }
     }
 }
