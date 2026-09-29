@@ -9,3 +9,4 @@ Jogo para os alunos treinarem o versionamento de codígo
 
 24/09 - Começei a criar o mapa do meu jogo, e fiz alguns obstáculos também.
 
+29/09- Terminei o cenário do meu jogo.
