@@ -12,3 +12,8 @@ Jogo para os alunos treinarem o versionamento de codígo
 29/09- Terminei o cenário do meu jogo.
 
 06/10- Terminei o mapa do meu jogo e adicionei uma mecanica de coletar moedas.
+
+15/10/2026- Criei um panel, criei um text criei tambem um botao de reset e um MenuManager
+
+12/11- Programei o botão de menu e de play e criei uma nova MenuScene
+
