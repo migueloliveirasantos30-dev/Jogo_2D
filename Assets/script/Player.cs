@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
     private Rigidbody2D rb;
-    
+
     private bool isGrounded = false;
-    public int coins;
+    public MenuScene menu;
+    public GameObject portalVitoria; 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
 
     void Update()
     {
@@ -28,30 +30,25 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true; //vai reconhecer quando o jogador pular no chão
-
         }
 
         if (collision.gameObject.CompareTag("Dano"))
         {
-            SceneManager.LoadScene(0);
+            menu.MostrarGameOver();
         }
 
-
+        
+        if (collision.gameObject == portalVitoria)
+        {
+            menu.MostrarVitoria(); //esse verifica se o objeto colidiu 
+        }
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Coins")
-        {
-            Destroy(collision.gameObject);
-            coins++;
-        }
-    }
-}   
+}

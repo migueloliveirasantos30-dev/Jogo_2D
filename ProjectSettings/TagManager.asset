@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Dano
   - Coins
+  - "Vit\xF3ria"
+  - Vitoria
   layers:
   - Default
   - TransparentFX
