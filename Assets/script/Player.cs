@@ -3,16 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
-    private Rigidbody2D rb;
+    public float speed = 5f; // Velocidade de movimentação do personagem 
+    private Rigidbody2D rb; // física do personagem 
 
-    private bool isGrounded = false;
+    private bool isGrounded = false;// Variável de controle para saber se o personagem está encostando no chão
     public MenuScene menu;
     public GameObject portalVitoria; 
 
-    void Start()
+    void Start() // Executa uma única vez quando o jogo começa 
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();   
     }
 
     void Update()
